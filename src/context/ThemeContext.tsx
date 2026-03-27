@@ -25,7 +25,7 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
 		mediaQuery.addEventListener('change', handler);
 
 		return () => mediaQuery.removeEventListener('change', handler);
-	}, []);
+	}, [mediaQuery.removeEventListener, mediaQuery.addEventListener, mediaQuery.matches]);
 
 	return <ThemeContext.Provider value={{ theme }}>{children}</ThemeContext.Provider>;
 };

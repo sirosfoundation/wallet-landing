@@ -29,7 +29,7 @@ export function resolveInitialRoute(pathname: string, knownTenants: KnownTenant[
 			props: {},
 		};
 	}
-	
+
 	if (knownTenants.length === 1) {
 		return {
 			type: 'redirect',

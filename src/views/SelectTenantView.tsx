@@ -1,8 +1,8 @@
 import { ArrowRightIcon } from 'lucide-react';
-import { buildTenantRoutePath, type KnownTenant } from '../lib/tenant';
 import Hero from '../components/shared/Hero';
-import Link from '../components/ui/elements/Link';
 import TenantMeta from '../components/tenants/TenantMeta';
+import Link from '../components/ui/elements/Link';
+import { buildTenantRoutePath, type KnownTenant } from '../lib/tenant';
 
 export type SelectTenantViewProps = {
 	tenants: KnownTenant[];
@@ -22,7 +22,7 @@ export default function SelectTenantView({ tenants }: SelectTenantViewProps) {
 								square
 								className="w-full mb-2 flex justify-between gap-3"
 								href={buildTenantRoutePath(tenant.id)}
-								>
+							>
 								<TenantMeta knownTenants={tenants} tenantId={tenant.id} />
 								<ArrowRightIcon size={20} className="m-0.5 shrink-0" />
 							</Link>
@@ -31,7 +31,9 @@ export default function SelectTenantView({ tenants }: SelectTenantViewProps) {
 					<hr className="my-4 border-t border-lm-gray-400 dark:border-dm-gray-600" />
 					{!tenants.find((t) => t.id === 'default') && (
 						<li key="default">
-							<Link variant="link" href={buildTenantRoutePath('default')}>Log in to other tenant</Link>
+							<Link variant="link" href={buildTenantRoutePath('default')}>
+								Log in to other tenant
+							</Link>
 						</li>
 					)}
 				</ul>
@@ -39,4 +41,3 @@ export default function SelectTenantView({ tenants }: SelectTenantViewProps) {
 		</div>
 	);
 }
-

@@ -1,7 +1,7 @@
 import { createElement, type JSX, type ReactElement } from 'react';
+import NotFound from './NotFound';
 import SelectTenantView, { type SelectTenantViewProps } from './SelectTenantView';
 import WelcomeView from './WelcomeView';
-import NotFound from './NotFound';
 
 export type ViewMap = {
 	'select-tenant': SelectTenantViewProps;

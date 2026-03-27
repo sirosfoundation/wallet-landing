@@ -62,7 +62,7 @@ export default function Button<T extends AllowedElements = 'button'>({
 
 	// Since T is a generic type, props cannot be directly passed to Component without casting
 	return (
-		<Component className={classList.join(' ')} {...(props as any)}>
+		<Component className={classList.join(' ')} {...(props as Record<string, unknown>)}>
 			{IconLeft && <IconLeft size="1em" />}
 			{children}
 			{IconRight && <IconRight size="1em" />}

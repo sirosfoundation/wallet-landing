@@ -1,9 +1,9 @@
-import { useMemo, type FC } from 'react';
-import useScreenType from '../hooks/useScreenType';
-import Link from '../components/ui/elements/Link';
-import InfoCard, { type InfoCardProps } from '../components/cards/InfoCard';
+import { type FC, useMemo } from 'react';
 import AboutCard from '../components/cards/AboutCard';
+import InfoCard, { type InfoCardProps } from '../components/cards/InfoCard';
 import Hero from '../components/shared/Hero';
+import Link from '../components/ui/elements/Link';
+import useScreenType from '../hooks/useScreenType';
 
 type InfoCardItem = InfoCardProps & {
 	Component: FC<InfoCardProps>;
@@ -52,7 +52,11 @@ const cardsList: CardsList = [
 					digital identify ecosystem? Use our Issuer, Wallet, Verifier, or trust framework to
 					compliment your solution, or explore our hosted or on prem solutions.
 				</p>
-				<Link variant="link" href="https://developers.siros.org" className="text-primary dark:text-white">
+				<Link
+					variant="link"
+					href="https://developers.siros.org"
+					className="text-primary dark:text-white"
+				>
 					Learn more
 				</Link>
 			</>
@@ -78,10 +82,10 @@ export default function WelcomeView() {
 		<div className="grow flex flex-col items-center justify-center pt-36 px-6 py-8">
 			<Hero />
 			<div className="mt-8 grid md:grid-cols-2 w-[min(100%,1200px)] gap-x-12 gap-y-8">
-				{cards.map((card, index) => {
+				{cards.map((card) => {
 					if (typeof card === 'function') {
 						const Component = card;
-						return <Component key={index} />;
+						return <Component key={card.name} />;
 					} else {
 						const { Component, ...props } = card;
 						return <Component key={props.title} {...props} />;
