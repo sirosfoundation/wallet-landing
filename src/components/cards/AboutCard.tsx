@@ -35,7 +35,7 @@ export default function AboutCard() {
 						apps, or installed as a progressive web app.
 					</p>
 				</div>
-				<div className="s-hide-in-wrapper-app self-end flex items-center gap-4">
+				<div className="hidden! s-hide-in-wrapper-app self-end flex items-center gap-4">
 					<p>Download:</p>
 					<Link variant="link" href="" className="text-primary dark:text-white">
 						App Store
