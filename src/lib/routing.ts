@@ -22,6 +22,14 @@ type ErrorRoute = {
 export type InitialRoute = RedirectRoute | RenderRoute | ErrorRoute;
 
 export function resolveInitialRoute(pathname: string, knownTenants: KnownTenant[]): InitialRoute {
+	if (pathname !== '/') {
+		return {
+			type: 'render',
+			view: 'not-found',
+			props: {},
+		};
+	}
+	
 	if (knownTenants.length === 1) {
 		return {
 			type: 'redirect',
@@ -39,17 +47,9 @@ export function resolveInitialRoute(pathname: string, knownTenants: KnownTenant[
 		};
 	}
 
-	if (pathname === '/') {
-		return {
-			type: 'render',
-			view: 'welcome',
-			props: {},
-		};
-	}
-
 	return {
 		type: 'render',
-		view: 'not-found',
+		view: 'welcome',
 		props: {},
 	};
 }
