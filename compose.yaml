@@ -1,0 +1,6 @@
+services:
+  wallet-landing:
+    image: ghcr.io/sirosfoundation/wallet-landing:latest
+    build: .
+    ports:
+      - "127.0.0.1:4000:80"
