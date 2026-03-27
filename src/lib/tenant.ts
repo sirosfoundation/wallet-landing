@@ -1,6 +1,7 @@
 /**
  * Most functions here are ported from wallet-frontend, to be used to extract
  * cached users from local storage.
+ * @see docs/porting-notes.md
  */
 
 /**
