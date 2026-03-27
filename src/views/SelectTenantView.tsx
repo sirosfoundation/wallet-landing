@@ -13,7 +13,7 @@ export default function SelectTenantView({ tenants }: SelectTenantViewProps) {
 		<div className="grow flex flex-col items-center justify-center px-6 py-8">
 			<Hero />
 			<div className="w-[min(100%,400px)] text-center">
-				<p>Please select your tenant to continue:</p>
+				<p>Please select your wallet to continue:</p>
 				<ul className="mt-4 space-y-4">
 					{tenants.map((tenant) => (
 						<li key={tenant.id}>
@@ -32,7 +32,7 @@ export default function SelectTenantView({ tenants }: SelectTenantViewProps) {
 					{!tenants.find((t) => t.id === 'default') && (
 						<li key="default">
 							<Link variant="link" href={buildTenantRoutePath('default')}>
-								Log in to other tenant
+								Log in to another wallet
 							</Link>
 						</li>
 					)}
