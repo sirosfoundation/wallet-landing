@@ -13,16 +13,20 @@
 		"@biomejs/biome": "^2.4.9",
 		"@changesets/changelog-github": "^0.5.2",
 		"@changesets/cli": "^2.29.7",
+		"@tailwindcss/vite": "^4.2.2",
 		"@types/node": "^25.5.0",
 		"@types/react": "^19.2.14",
 		"@types/react-dom": "^19.2.3",
 		"@vitejs/plugin-react": "^6.0.1",
 		"dotenv-cli": "^11.0.0",
+		"tailwindcss": "^4.2.2",
 		"typescript": "^6.0.2",
 		"vite": "^8.0.2"
 	},
 	"packageManager": "pnpm@9.15.0",
 	"dependencies": {
+		"@fontsource/inter": "^5.2.8",
+		"lucide-react": "^1.7.0",
 		"react": "^19.2.4",
 		"react-dom": "^19.2.4"
 	}
