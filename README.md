@@ -42,6 +42,8 @@ services:
       - "127.0.0.1:4000:80"
 ```
 
+The container runs NGINX on port 80 and serves the static app.
+
 ## License
 
 [BSD-2-Clause](LICENSE) — Copyright (c) 2026, SIROS Foundation
