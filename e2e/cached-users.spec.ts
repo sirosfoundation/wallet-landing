@@ -45,7 +45,7 @@ test.describe('multiple cached users', () => {
 
 	test('shows the tenant selection view', async ({ page }) => {
 		await page.goto('/');
-		await expect(page.getByText('Please select your tenant')).toBeVisible();
+		await expect(page.getByText('Please select your wallet to continue')).toBeVisible();
 		await expect(page.getByText('Acme Corp')).toBeVisible();
 		await expect(page.getByText('Globex Inc')).toBeVisible();
 	});
@@ -60,7 +60,7 @@ test.describe('multiple cached users', () => {
 
 	test('shows "Log in to other tenant" when default is not in list', async ({ page }) => {
 		await page.goto('/');
-		await expect(page.getByText('Log in to other tenant')).toBeVisible();
+		await expect(page.getByText('Log in to another wallet')).toBeVisible();
 	});
 });
 
