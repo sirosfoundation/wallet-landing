@@ -4,5 +4,7 @@
   "initialVersions": {
     "@sirosfoundation/wallet-landing": "0.0.0"
   },
-  "changesets": []
+  "changesets": [
+    "open-chicken-film"
+  ]
 }
