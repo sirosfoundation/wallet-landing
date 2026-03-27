@@ -57,9 +57,9 @@ lint-fix:
 # Testing
 # ==============================================================================
 
-.PHONY: test
-test:
-	pnpm test
+.PHONY: test-unit
+test-unit:
+	pnpm test:unit
 
 .PHONY: test-e2e
 test-e2e:
