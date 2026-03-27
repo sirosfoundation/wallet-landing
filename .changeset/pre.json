@@ -1,0 +1,8 @@
+{
+  "mode": "pre",
+  "tag": "beta",
+  "initialVersions": {
+    "@sirosfoundation/wallet-landing": "0.0.0"
+  },
+  "changesets": []
+}
