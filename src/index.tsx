@@ -1,7 +1,13 @@
 import { createRoot } from 'react-dom/client';
 import { resolveInitialRoute } from './lib/routing';
 import { getCachedUsers, getKnownTenants } from './lib/tenant';
-import { renderView } from './views';
+
+import '@fontsource/inter/400.css';
+import '@fontsource/inter/500.css';
+import '@fontsource/inter/600.css';
+import './styles/theme.css';
+import './styles/index.css';
+import App from './App';
 
 const el = document.getElementById('root');
 if (!el) {
@@ -19,8 +25,7 @@ switch (route.type) {
 		window.location.href = route.url;
 		break;
 	case 'render':
-		const View = renderView(route.view, route.props);
-		root.render(View);
+		root.render(<App view={route.view} props={route.props} />);
 		break;
 	case 'error':
 		root.render(
