@@ -5,6 +5,9 @@
     "@sirosfoundation/wallet-landing": "0.0.0"
   },
   "changesets": [
-    "open-chicken-film"
+    "clear-maps-shout",
+    "late-doors-stand",
+    "open-chicken-film",
+    "purple-papayas-dance"
   ]
 }
