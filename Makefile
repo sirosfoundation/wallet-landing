@@ -60,3 +60,7 @@ lint-fix:
 .PHONY: test
 test:
 	pnpm test
+
+.PHONY: test-e2e
+test-e2e:
+	pnpm test:e2e
