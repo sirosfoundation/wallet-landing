@@ -1,5 +1,15 @@
 # @sirosfoundation/wallet-landing
 
+## 0.1.0-beta.3
+
+### Minor Changes
+
+- [#9](https://github.com/sirosfoundation/wallet-landing/pull/9) [`a18885e`](https://github.com/sirosfoundation/wallet-landing/commit/a18885e44ea572475518030d8d01124791d60138) Thanks [@smncd](https://github.com/smncd)! - feat: add service worker to cache assets for offline use
+
+### Patch Changes
+
+- [#10](https://github.com/sirosfoundation/wallet-landing/pull/10) [`92331f4`](https://github.com/sirosfoundation/wallet-landing/commit/92331f4c33e9b04981c552c4992a0e89c41af3cb) Thanks [@smncd](https://github.com/smncd)! - test: add service worker e2e tests
+
 ## 0.1.0-beta.2
 
 ### Minor Changes
