@@ -21,16 +21,6 @@ function serviceWorker(): Plugin {
 
 			this.emitFile({ type: 'asset', fileName: 'sw.js', source: stripExport(code) });
 		},
-		configureServer(server) {
-			server.middlewares.use('/sw.js', async (_req, res) => {
-				const source = inject(await readFile('src/sw.ts', 'utf-8'));
-				const { code } = await transformWithOxc(source, 'sw.ts');
-
-				res.setHeader('Content-Type', 'application/javascript');
-				res.setHeader('Cache-Control', 'no-cache');
-				res.end(stripExport(code));
-			});
-		},
 	};
 }
 
