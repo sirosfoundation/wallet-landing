@@ -30,7 +30,7 @@ export function resolveInitialRoute(pathname: string, knownTenants: KnownTenant[
 		};
 	}
 
-	if (knownTenants.length === 1) {
+	if (knownTenants.length === 1 || (knownTenants.length > 1 && appearsLoggedIn())) {
 		return {
 			type: 'redirect',
 			url: buildTenantRoutePath(knownTenants[0].id),
@@ -38,13 +38,6 @@ export function resolveInitialRoute(pathname: string, knownTenants: KnownTenant[
 	}
 
 	if (knownTenants.length > 1) {
-		if (appearsLoggedIn()) {
-			return {
-				type: 'redirect',
-				url: buildTenantRoutePath(knownTenants[0].id),
-			};
-		}
-
 		return {
 			type: 'render',
 			view: 'select-tenant',
