@@ -2,9 +2,9 @@ import { createRoot } from 'react-dom/client';
 import { resolveInitialRoute } from './lib/routing';
 import { getCachedUsers, getKnownTenants } from './lib/tenant';
 
-import '@fontsource/inter/400.css';
-import '@fontsource/inter/500.css';
-import '@fontsource/inter/600.css';
+import '@fontsource/inter/latin-ext-400.css';
+import '@fontsource/inter/latin-ext-500.css';
+import '@fontsource/inter/latin-ext-600.css';
 import './styles/theme.css';
 import './styles/index.css';
 import App from './App';
