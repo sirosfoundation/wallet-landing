@@ -39,10 +39,10 @@ services:
   wallet-landing:
     image: ghcr.io/sirosfoundation/wallet-landing:latest
     ports:
-      - "127.0.0.1:4000:80"
+      - "127.0.0.1:4000:8080"
 ```
 
-The container runs NGINX on port 80 and serves the static app.
+The container runs NGINX on port 8080 and serves the static app.
 
 ## License
 
