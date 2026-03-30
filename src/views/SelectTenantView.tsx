@@ -12,8 +12,10 @@ export default function SelectTenantView({ tenants }: SelectTenantViewProps) {
 	return (
 		<div className="grow flex flex-col items-center justify-center px-6 py-8">
 			<Hero />
-			<div className="w-[min(100%,400px)] text-center">
-				<p>Please select your wallet to continue:</p>
+			<div className="w-[min(100%,450px)] relative p-8 sm:px-12 space-y-4 md:space-y-6 lg:space-y-8 bg-white rounded-lg dark:bg-dm-gray-900 border border-lm-gray-400 dark:border-dm-gray-600">
+				<h2 className="pt-4 text-xl font-bold leading-tight tracking-tight text-dm-gray-900 md:text-2xl text-center dark:text-white">
+					Select your wallet to continue
+				</h2>
 				<ul className="mt-4 space-y-4">
 					{tenants.map((tenant) => (
 						<li key={tenant.id}>
@@ -28,13 +30,14 @@ export default function SelectTenantView({ tenants }: SelectTenantViewProps) {
 							</Link>
 						</li>
 					))}
-					<hr className="my-4 border-t border-lm-gray-400 dark:border-dm-gray-600" />
-					{!tenants.find((t) => t.id === 'default') && (
-						<li key="default">
-							<Link variant="link" href={buildTenantRoutePath('default')}>
-								Log in to another wallet
-							</Link>
-						</li>
+					{!tenants.find((t) => t.id === 'default') || true && (
+						<>
+							<li key="default" className="mt-5 text-sm">
+								<Link variant="link" href={buildTenantRoutePath('default')}>
+									Log in to another wallet
+								</Link>
+							</li>
+						</>
 					)}
 				</ul>
 			</div>
