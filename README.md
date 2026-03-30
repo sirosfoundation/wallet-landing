@@ -2,7 +2,7 @@
 [![Test](https://github.com/sirosfoundation/wallet-landing/actions/workflows/test.yml/badge.svg)](https://github.com/sirosfoundation/wallet-landing/actions/workflows/test.yml)
 [![Lint](https://github.com/sirosfoundation/wallet-landing/actions/workflows/lint.yml/badge.svg)](https://github.com/sirosfoundation/wallet-landing/actions/workflows/lint.yml)
 [![License](https://img.shields.io/github/license/sirosfoundation/wallet-landing)](LICENSE)
-[![Docker Image](https://img.shields.io/badge/ghcr.io-wallet--landing-blue?logo=docker)](https://ghcr.io/sirosfoundation/wallet-landing)
+[![GHCR](https://img.shields.io/github/v/tag/sirosfoundation/wallet-landing?label=ghcr.io&logo=docker)](https://github.com/sirosfoundation/wallet-landing/pkgs/container/wallet-landing)
 
 Landing page for the [SIROS ID Wallet](https://id.siros.org). Handles the initial entry point, routing returning users to their tenant, presenting tenant selection for multi-tenant users, or showing the welcome page for new visitors.
 
