@@ -13,18 +13,13 @@ export default function OnlineStatusBanner() {
 			return;
 		}
 
-		setBanner(
-			(prev) => (prev === 'offline' ? 'recovered' : 'hidden')
-		);
+		setBanner((prev) => (prev === 'offline' ? 'recovered' : 'hidden'));
 	}, [status]);
 
 	useEffect(() => {
 		if (banner !== 'recovered') return;
 
-		const timer = setTimeout(
-			() => setBanner('hidden'),
-			1500
-		);
+		const timer = setTimeout(() => setBanner('hidden'), 1500);
 
 		return () => clearTimeout(timer);
 	}, [banner]);
