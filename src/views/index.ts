@@ -1,7 +1,5 @@
-import { createElement, type JSX, type ReactElement } from 'react';
-import NotFound from './NotFound';
-import SelectTenantView, { type SelectTenantViewProps } from './SelectTenantView';
-import WelcomeView from './WelcomeView';
+import { createElement, lazy, type ReactElement, type ReactNode } from 'react';
+import { type SelectTenantViewProps } from './SelectTenantView';
 
 export type ViewMap = {
 	'select-tenant': SelectTenantViewProps;
@@ -11,16 +9,16 @@ export type ViewMap = {
 
 export type ViewProps<V extends keyof ViewMap> = ViewMap[V];
 
-export type ViewComponent<V extends keyof ViewMap> = (props: ViewProps<V>) => JSX.Element;
+export type ViewComponent<V extends keyof ViewMap> = (props: ViewProps<V>) => ReactNode;
 
 export type Views = {
 	[V in keyof ViewMap]: ViewComponent<V>;
 };
 
 export const views: Views = {
-	'select-tenant': SelectTenantView,
-	welcome: WelcomeView,
-	'not-found': NotFound,
+	'select-tenant': lazy(()=> import('./SelectTenantView')),
+	welcome: lazy(() => import('./WelcomeView')),
+	'not-found': lazy(() => import('./NotFound')),
 };
 
 export function renderView<V extends keyof ViewMap>(view: V, props: ViewMap[V]): ReactElement {
