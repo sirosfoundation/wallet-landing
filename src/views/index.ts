@@ -1,5 +1,5 @@
 import { createElement, lazy, type ReactElement, type ReactNode } from 'react';
-import { type SelectTenantViewProps } from './SelectTenantView';
+import type { SelectTenantViewProps } from './SelectTenantView';
 
 export type ViewMap = {
 	'select-tenant': SelectTenantViewProps;
@@ -16,7 +16,7 @@ export type Views = {
 };
 
 export const views: Views = {
-	'select-tenant': lazy(()=> import('./SelectTenantView')),
+	'select-tenant': lazy(() => import('./SelectTenantView')),
 	welcome: lazy(() => import('./WelcomeView')),
 	'not-found': lazy(() => import('./NotFound')),
 };

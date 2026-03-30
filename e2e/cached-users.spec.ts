@@ -45,7 +45,7 @@ test.describe('multiple cached users', () => {
 
 	test('shows the tenant selection view', async ({ page }) => {
 		await page.goto('/');
-		await expect(page.getByText('Please select your wallet to continue')).toBeVisible();
+		await expect(page.getByText('Select your wallet to continue')).toBeVisible();
 		await expect(page.getByText('Acme Corp')).toBeVisible();
 		await expect(page.getByText('Globex Inc')).toBeVisible();
 	});

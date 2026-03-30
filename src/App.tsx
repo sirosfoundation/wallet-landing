@@ -14,9 +14,7 @@ export default function App<V extends keyof ViewMap>({ view, props }: AppProps<V
 		<StrictMode>
 			<ThemeProvider>
 				<Layout>
-					<Suspense fallback={<Spinner />}>
-						{renderView(view, props)}
-					</Suspense>
+					<Suspense fallback={<Spinner />}>{renderView(view, props)}</Suspense>
 				</Layout>
 			</ThemeProvider>
 		</StrictMode>

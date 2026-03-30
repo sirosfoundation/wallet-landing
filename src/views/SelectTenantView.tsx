@@ -30,14 +30,12 @@ export default function SelectTenantView({ tenants }: SelectTenantViewProps) {
 							</Link>
 						</li>
 					))}
-					{!tenants.find((t) => t.id === 'default') || true && (
-						<>
-							<li key="default" className="mt-5 text-sm">
-								<Link variant="link" href={buildTenantRoutePath('default')}>
-									Log in to another wallet
-								</Link>
-							</li>
-						</>
+					{!tenants.find((t) => t.id === 'default') && (
+						<li key="default" className="mt-5 text-sm">
+							<Link variant="link" href={buildTenantRoutePath('default')}>
+								Log in to another wallet
+							</Link>
+						</li>
 					)}
 				</ul>
 			</div>
