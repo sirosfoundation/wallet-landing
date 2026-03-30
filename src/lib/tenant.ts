@@ -97,6 +97,7 @@ export function getKnownTenants(cachedUsers: CachedUser[]): KnownTenant[] {
  */
 export function appearsLoggedIn(): boolean {
 	const userHandle = sessionStorage.getItem('userHandle');
+	const sessionState = sessionStorage.getItem('sessionState');
 
-	return !!(userHandle && userHandle !== '');
+	return !!userHandle && !!sessionState;
 }

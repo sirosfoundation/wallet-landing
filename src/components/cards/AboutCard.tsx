@@ -18,8 +18,8 @@ export default function AboutCard() {
 				</h2>
 				<div className="space-y-1 text-base">
 					<p>
-						SIROS ID is a digital identity wallet app that gives you secure, full control over
-						the storage and use of your credentials, such as:
+						SIROS ID is a digital identity wallet app that gives you secure, full control over the
+						storage and use of your credentials, such as:
 					</p>
 					<ul className="my-6 grid lg:grid-cols-2 lg:grid-rows-2 gap-4">
 						{highlights.map(({ icon: Icon, text }) => (
