@@ -22,7 +22,12 @@ type ErrorRoute = {
 export type InitialRoute = RedirectRoute | RenderRoute | ErrorRoute;
 
 export function resolveInitialRoute(pathname: string, knownTenants: KnownTenant[]): InitialRoute {
-	if (pathname !== '/') {
+	const isBasePath = pathname === '/';
+	const hasOneTenant = knownTenants.length === 1;
+	const hasManyTenants = knownTenants.length > 1;
+	const appearsToHaveSession = hasManyTenants && appearsLoggedIn();
+
+	if (!isBasePath) {
 		return {
 			type: 'render',
 			view: 'not-found',
@@ -30,14 +35,14 @@ export function resolveInitialRoute(pathname: string, knownTenants: KnownTenant[
 		};
 	}
 
-	if (knownTenants.length === 1 || (knownTenants.length > 1 && appearsLoggedIn())) {
+	if (hasOneTenant || appearsToHaveSession) {
 		return {
 			type: 'redirect',
 			url: buildTenantRoutePath(knownTenants[0].id),
 		};
 	}
 
-	if (knownTenants.length > 1) {
+	if (hasManyTenants) {
 		return {
 			type: 'render',
 			view: 'select-tenant',
