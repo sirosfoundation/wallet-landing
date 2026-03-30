@@ -1,10 +1,14 @@
-import { describe, expect, it } from 'vitest';
+import { beforeEach, describe, expect, it } from 'vitest';
 import { resolveInitialRoute } from './routing';
 import type { KnownTenant } from './tenant';
 
 const tenant = (id: string): KnownTenant => ({ id, userCount: 1 });
 
 describe('resolveInitialRoute', () => {
+	beforeEach(() => {
+		sessionStorage.clear();
+	});
+
 	it('renders welcome view when no cached users exist', () => {
 		expect(resolveInitialRoute('/', [])).toEqual({
 			type: 'render',
@@ -26,6 +30,16 @@ describe('resolveInitialRoute', () => {
 			type: 'render',
 			view: 'select-tenant',
 			props: { tenants },
+		});
+	});
+
+	it('redirects to first tenant when multiple cached users exist and user appears logged in', () => {
+		sessionStorage.setItem('userHandle', 'alice');
+		sessionStorage.setItem('sessionState', 'active');
+		const tenants = [tenant('acme'), tenant('globex')];
+		expect(resolveInitialRoute('/', tenants)).toEqual({
+			type: 'redirect',
+			url: '/id/acme/',
 		});
 	});
 
