@@ -38,6 +38,13 @@ self.addEventListener('fetch', (event) => {
 		return;
 	}
 
+	// Tenant paths should be handled by their own service worker, so don't cache them.
+	const url = new URL(request.url);
+	if (url.pathname.startsWith('/id/')) {
+		event.respondWith(fetch(request));
+		return;
+	}
+
 	// Navigation requests
 	if (request.mode === 'navigate') {
 		event.respondWith(
