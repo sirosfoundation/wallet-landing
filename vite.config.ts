@@ -15,8 +15,13 @@ function serviceWorker(): Plugin {
 
 	return {
 		name: 'service-worker',
-		async generateBundle() {
-			const source = inject(await readFile('src/sw.ts', 'utf-8'));
+		async generateBundle(_options, bundle) {
+			const assets = Object.keys(bundle).map((name) => `/${name}`);
+			const precacheURLs = ['/', '/favicon.ico', ...assets];
+
+			let source = inject(await readFile('src/sw.ts', 'utf-8'));
+			source = source.replace(/(?<!declare const )__SW_PRECACHE_URLS__/, JSON.stringify(precacheURLs));
+
 			const { code } = await transformWithOxc(source, 'sw.ts');
 
 			this.emitFile({ type: 'asset', fileName: 'sw.js', source: stripExport(code) });
