@@ -9,5 +9,5 @@
     "strict": true,
     "skipLibCheck": true
   },
-  "include": ["src/sw.ts"]
+  "include": ["src/types.d.ts", "src/sw.ts"]
 }

@@ -11,6 +11,14 @@ const PRECACHE_URLS: string[] = __SW_PRECACHE_URLS__;
 
 const CACHE_NAME = `wallet-landing--${SW_VERSION}`;
 
+async function broadcastUnreachable() {
+	const message: SWMessage = { type: 'connectivity', online: false };
+	const clients = await self.clients.matchAll();
+	for (const client of clients) {
+		client.postMessage(message);
+	}
+}
+
 self.addEventListener('install', (event) => {
 	event.waitUntil(
 		(async () => {
@@ -57,6 +65,7 @@ self.addEventListener('fetch', (event) => {
 
 					return response;
 				} catch {
+					broadcastUnreachable();
 					const cached = await caches.match('/');
 
 					return cached || new Response('Offline', { status: 503 });
