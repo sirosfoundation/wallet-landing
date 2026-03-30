@@ -6,9 +6,10 @@ declare const self: ServiceWorkerGlobalScope;
 declare const __SW_VERSION__: string;
 declare const __SW_PRECACHE_URLS__: string[];
 
-const CACHE_NAME = `wallet-landing--${__SW_VERSION__}`;
-
+const SW_VERSION = __SW_VERSION__;
 const PRECACHE_URLS: string[] = __SW_PRECACHE_URLS__;
+
+const CACHE_NAME = `wallet-landing--${SW_VERSION}`;
 
 self.addEventListener('install', (event) => {
 	event.waitUntil(
