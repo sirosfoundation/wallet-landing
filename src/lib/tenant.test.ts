@@ -1,5 +1,6 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import {
+	appearsLoggedIn,
 	buildTenantRoutePath,
 	type CachedUser,
 	DEFAULT_TENANT_ID,
@@ -110,5 +111,31 @@ describe('getKnownTenants', () => {
 		expect(getKnownTenants(users)).toEqual([
 			{ id: 'acme', displayName: 'Acme Corp', userCount: 2 },
 		]);
+	});
+});
+
+describe('appearsLoggedIn', () => {
+	beforeEach(() => {
+		sessionStorage.clear();
+	});
+
+	it('returns false when sessionStorage is empty', () => {
+		expect(appearsLoggedIn()).toBe(false);
+	});
+
+	it('returns false when only userHandle is set', () => {
+		sessionStorage.setItem('userHandle', 'alice');
+		expect(appearsLoggedIn()).toBe(false);
+	});
+
+	it('returns false when only sessionState is set', () => {
+		sessionStorage.setItem('sessionState', 'active');
+		expect(appearsLoggedIn()).toBe(false);
+	});
+
+	it('returns true when both userHandle and sessionState are set', () => {
+		sessionStorage.setItem('userHandle', 'alice');
+		sessionStorage.setItem('sessionState', 'active');
+		expect(appearsLoggedIn()).toBe(true);
 	});
 });

@@ -62,6 +62,16 @@ test.describe('multiple cached users', () => {
 		await page.goto('/');
 		await expect(page.getByText('Log in to another wallet')).toBeVisible();
 	});
+
+	test('redirects to first tenant when user appears logged in', async ({ page }) => {
+		await page.addInitScript(() => {
+			sessionStorage.setItem('userHandle', 'alice');
+			sessionStorage.setItem('sessionState', 'active');
+		});
+
+		await page.goto('/');
+		await page.waitForURL('/id/acme/');
+	});
 });
 
 test.describe('cached user includes default tenant', () => {
