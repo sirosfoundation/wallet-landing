@@ -91,3 +91,12 @@ export function getKnownTenants(cachedUsers: CachedUser[]): KnownTenant[] {
 
 	return Array.from(tenantMap.values());
 }
+
+/**
+ * User appears to be logged in based on the data in session storage.
+ */
+export function appearsLoggedIn(): boolean {
+	const userHandle = sessionStorage.getItem('userHandle');
+
+	return !!(userHandle && userHandle !== '');
+}

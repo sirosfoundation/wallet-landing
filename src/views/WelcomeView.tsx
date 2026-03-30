@@ -34,7 +34,7 @@ const cardsList: CardsList = [
 			<>
 				<Link href="/id/default">Continue</Link>
 				<span className="text-primary dark:text-white">
-					Aready have a account?{' '}
+					Already have a account?{' '}
 					<Link href="/id/default/login" variant="link" className="text-inherit">
 						Log in
 					</Link>
