@@ -7,7 +7,7 @@ COPY . ./
 RUN pnpm build
 
 
-FROM nginx:alpine AS deploy
+FROM ghcr.io/nginx/nginx-unprivileged:alpine AS deploy
 
 WORKDIR /usr/share/nginx/
 
@@ -15,4 +15,4 @@ COPY ./nginx/nginx.conf /etc/nginx/conf.d/default.conf
 
 COPY --from=builder --chown=nginx:nginx /app/dist/ ./html/
 
-EXPOSE 80
+EXPOSE 8080
