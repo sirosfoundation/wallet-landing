@@ -1,5 +1,5 @@
 import type { ViewMap } from '../views';
-import { buildTenantRoutePath, type KnownTenant } from './tenant';
+import { appearsLoggedIn, buildTenantRoutePath, type KnownTenant } from './tenant';
 
 type RedirectRoute = {
 	type: 'redirect';
@@ -38,6 +38,13 @@ export function resolveInitialRoute(pathname: string, knownTenants: KnownTenant[
 	}
 
 	if (knownTenants.length > 1) {
+		if (appearsLoggedIn()) {
+			return {
+				type: 'redirect',
+				url: buildTenantRoutePath(knownTenants[0].id),
+			};
+		}
+
 		return {
 			type: 'render',
 			view: 'select-tenant',
