@@ -1,5 +1,21 @@
 # @sirosfoundation/wallet-landing
 
+## 0.2.0
+
+### Minor Changes
+
+- [#15](https://github.com/sirosfoundation/wallet-landing/pull/15) [`d3a1830`](https://github.com/sirosfoundation/wallet-landing/commit/d3a1830e7a89d70837c2256ba884cad2fdd57621) Thanks [@smncd](https://github.com/smncd)! - feature: add a status bar to indicate online status (offline/online/network unreachable)
+
+### Patch Changes
+
+- [#13](https://github.com/sirosfoundation/wallet-landing/pull/13) [`37b51e9`](https://github.com/sirosfoundation/wallet-landing/commit/37b51e988495adf9564813ec10e60616dcf1ae23) Thanks [@smncd](https://github.com/smncd)! - fix: don't cache tenant-specific paths in sw
+
+- [#16](https://github.com/sirosfoundation/wallet-landing/pull/16) [`6c374d8`](https://github.com/sirosfoundation/wallet-landing/commit/6c374d864425c9c3a647fea6a9143b6389797e96) Thanks [@smncd](https://github.com/smncd)! - fix: spelling of footer link href
+
+- [#17](https://github.com/sirosfoundation/wallet-landing/pull/17) [`d706195`](https://github.com/sirosfoundation/wallet-landing/commit/d706195bda0520642190b8b2d040737586ef6644) Thanks [@smncd](https://github.com/smncd)! - fix: use non-ext version of inter, needed to make it show properly
+
+- [#14](https://github.com/sirosfoundation/wallet-landing/pull/14) [`44e0aeb`](https://github.com/sirosfoundation/wallet-landing/commit/44e0aeb637c7885feaac80ccb2583a6c36726208) Thanks [@Didr](https://github.com/Didr)! - feat: use unprivileged nginx, move port 80 to 8080
+
 ## 0.1.0
 
 ### Minor Changes
