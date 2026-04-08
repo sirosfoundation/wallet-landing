@@ -1,5 +1,13 @@
 # @sirosfoundation/wallet-landing
 
+## 0.2.1
+
+### Patch Changes
+
+- [#20](https://github.com/sirosfoundation/wallet-landing/pull/20) [`c3f7181`](https://github.com/sirosfoundation/wallet-landing/commit/c3f7181ceb8d00aeaa73bebeee44ba1b7b39c79e) Thanks [@s-jairl](https://github.com/s-jairl)! - Add .well-known files needed by native apps
+
+- [#19](https://github.com/sirosfoundation/wallet-landing/pull/19) [`1ed3227`](https://github.com/sirosfoundation/wallet-landing/commit/1ed32274e082eaeb11c0e4fda3573fc5fccdf876) Thanks [@smncd](https://github.com/smncd)! - chore: move image.png to assets dir
+
 ## 0.2.0
 
 ### Minor Changes
