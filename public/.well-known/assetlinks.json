@@ -1,0 +1,31 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls",
+      "delegate_permission/common.get_login_creds"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "io.yubicolabs.wwwwallet",
+      "sha256_cert_fingerprints": [
+        "E9:E7:07:2D:01:F5:D0:A8:B0:54:11:54:18:24:F0:19:EF:89:98:AE:EA:76:AA:A0:8E:DA:23:CC:C8:B7:DB:69",
+        "0C:4B:DE:80:E6:A4:F3:B3:19:58:2E:A9:1B:20:DA:DE:1A:8A:9C:DC:29:B5:1B:FC:89:37:90:B2:C6:8C:D8:C1",
+        "42:3A:33:70:A7:6D:C7:21:74:C2:FA:4B:26:EC:75:CC:08:B8:B5:0B:D0:D1:88:D3:BF:04:0A:B5:AB:CA:7B:7C",
+        "19:0D:81:C7:20:87:28:D1:CF:25:93:5D:6C:75:CE:4B:8A:A3:68:0C:8A:9A:7D:8B:FF:1A:E2:95:7B:F8:8A:F0"
+      ]
+    }
+  },
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls",
+      "delegate_permission/common.get_login_creds"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "org.siros.id",
+      "sha256_cert_fingerprints": [
+        "42:3A:33:70:A7:6D:C7:21:74:C2:FA:4B:26:EC:75:CC:08:B8:B5:0B:D0:D1:88:D3:BF:04:0A:B5:AB:CA:7B:7C",
+        "0C:4B:DE:80:E6:A4:F3:B3:19:58:2E:A9:1B:20:DA:DE:1A:8A:9C:DC:29:B5:1B:FC:89:37:90:B2:C6:8C:D8:C1"
+      ]
+    }
+  }
