@@ -1,5 +1,13 @@
 # @sirosfoundation/wallet-landing
 
+## 0.2.2
+
+### Patch Changes
+
+- [#22](https://github.com/sirosfoundation/wallet-landing/pull/22) [`5d79c31`](https://github.com/sirosfoundation/wallet-landing/commit/5d79c313cf98dea0414184c64cd752316f968249) Thanks [@smncd](https://github.com/smncd)! - chore: update `assetlinks.json`
+
+- [#21](https://github.com/sirosfoundation/wallet-landing/pull/21) [`e0aead3`](https://github.com/sirosfoundation/wallet-landing/commit/e0aead3de5e3bc0ca5dde9fceb7dfe9ad3b3aa61) Thanks [@s-jairl](https://github.com/s-jairl)! - Fix .well-known files needed by native Android app
+
 ## 0.2.1
 
 ### Patch Changes
