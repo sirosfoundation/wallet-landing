@@ -2,6 +2,7 @@ import Hero from '../components/shared/Hero';
 import Link from '../components/ui/elements/Link';
 
 export default function NotFound() {
+	console.log(`404 URL: ${document.location}`);
 	return (
 		<div className="grow flex flex-col items-center justify-center px-6 py-8 space-y-8">
 			<Hero title="404: Not found" />
