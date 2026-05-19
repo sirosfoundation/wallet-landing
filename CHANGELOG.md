@@ -1,5 +1,11 @@
 # @sirosfoundation/wallet-landing
 
+## 0.2.3
+
+### Patch Changes
+
+- [#25](https://github.com/sirosfoundation/wallet-landing/pull/25) [`c2e5db1`](https://github.com/sirosfoundation/wallet-landing/commit/c2e5db1ddce13be0abe22591627155b772c2c678) Thanks [@s-jairl](https://github.com/s-jairl)! - Add debug logging in "NotFound" view.
+
 ## 0.2.2
 
 ### Patch Changes
