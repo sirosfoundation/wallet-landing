@@ -1,5 +1,11 @@
 # @sirosfoundation/wallet-landing
 
+## 0.3.0
+
+### Minor Changes
+
+- [#26](https://github.com/sirosfoundation/wallet-landing/pull/26) [`79e4085`](https://github.com/sirosfoundation/wallet-landing/commit/79e408567db5134dbf1fb3ceef704036aeee5428) Thanks [@smncd](https://github.com/smncd)! - Add native app specific welcome view
+
 ## 0.2.3
 
 ### Patch Changes

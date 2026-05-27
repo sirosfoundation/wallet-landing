@@ -1,6 +1,6 @@
 {
 	"name": "@sirosfoundation/wallet-landing",
-	"version": "0.2.3",
+	"version": "0.3.0",
 	"license": "BSD-2-Clause",
 	"type": "module",
 	"scripts": {
