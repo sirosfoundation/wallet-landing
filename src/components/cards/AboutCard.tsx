@@ -1,13 +1,6 @@
-import { BadgeCheckIcon, CalendarDaysIcon, IdCardIcon, SquareStarIcon } from 'lucide-react';
 import laptopPhoneImage from '../../assets/images/laptop-phone.png';
+import HighlightsList from '../shared/HighlightsList';
 import Link from '../ui/elements/Link';
-
-const highlights = [
-	{ icon: CalendarDaysIcon, text: 'Proof of age' },
-	{ icon: IdCardIcon, text: 'Government or organizational ID' },
-	{ icon: SquareStarIcon, text: 'Memberships or qualifications' },
-	{ icon: BadgeCheckIcon, text: 'Permissions and authorizations' },
-];
 
 export default function AboutCard() {
 	return (
@@ -21,17 +14,7 @@ export default function AboutCard() {
 						SIROS ID is a digital identity wallet app that gives you secure, full control over the
 						storage and use of your credentials, such as:
 					</p>
-					<ul className="my-6 grid lg:grid-cols-2 lg:grid-rows-2 gap-4">
-						{highlights.map(({ icon: Icon, text }) => (
-							<li
-								key={text}
-								className="flex items-center gap-4 text-sm text-primary dark:text-white"
-							>
-								<Icon />
-								{text}
-							</li>
-						))}
-					</ul>
+					<HighlightsList />
 					<p>
 						Unlike most wallets, SIROS ID Wallet can be used in a web brower or through our native
 						apps, or installed as a progressive web app.

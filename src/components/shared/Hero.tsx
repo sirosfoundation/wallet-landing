@@ -1,3 +1,4 @@
+import useScreenType from '../../hooks/useScreenType';
 import Logo from './Logo';
 
 export type HeroProps = {
@@ -5,6 +6,8 @@ export type HeroProps = {
 };
 
 export default function Hero({ title }: HeroProps) {
+	const screenType = useScreenType();
+
 	return (
 		<>
 			<a href="/" className="mb-6" aria-label="SIROS ID Wallet">
@@ -13,7 +16,10 @@ export default function Hero({ title }: HeroProps) {
 			<h1 className="text-3xl mb-8 font-bold leading-tight tracking-tight text-lm-gray-900 text-center dark:text-white">
 				{title || (
 					<>
-						Welcome to <span className="text-primary dark:text-brand-light">SIROS ID Wallet</span>
+						Welcome to{' '}
+						<span className="text-primary dark:text-brand-light">
+							SIROS ID {screenType === 'mobile' ? '' : 'Wallet'}
+						</span>
 					</>
 				)}
 			</h1>
