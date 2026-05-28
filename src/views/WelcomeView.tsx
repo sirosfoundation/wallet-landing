@@ -84,6 +84,39 @@ const cardsList: CardsList = [
 	},
 	{
 		Component: InfoCard,
+		title: 'Staying Safe',
+		body: (
+			<>
+				<p>
+					Your wallet is protected by a passkey — not a password. Here are a few tips to keep your
+					credentials secure:
+				</p>
+				<ul className="list-disc pl-5 space-y-1 mt-2">
+					<li>
+						<strong>Register a backup passkey</strong> on a second device so you never lose access.
+					</li>
+					<li>
+						<strong>Check the URL</strong> before authenticating — passkeys are bound to this domain
+						and cannot be phished, but always verify you are on the right site.
+					</li>
+					<li>
+						<strong>Review what you share</strong> — the wallet shows exactly which fields a verifier
+						requests. Only approved fields are sent.
+					</li>
+					<li>
+						<strong>Keep your browser updated</strong> for the latest security patches.
+					</li>
+				</ul>
+			</>
+		),
+		actions: (
+			<>
+				<Link href="https://docs.siros.org/security/user-guidance">Security guidance</Link>
+			</>
+		),
+	},
+	{
+		Component: InfoCard,
 		title: 'Develop with the SIROS ID Platform',
 		body: (
 			<>
