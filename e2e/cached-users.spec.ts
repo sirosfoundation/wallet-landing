@@ -90,3 +90,50 @@ test.describe('cached user includes default tenant', () => {
 		await expect(page.getByText('Log in to other tenant')).not.toBeVisible();
 	});
 });
+
+test.describe('OID callback on a non-root path', () => {
+	test('shows 404 when there are no cached users', async ({ page }) => {
+		await page.goto('/some/callback?code=abc');
+		await expect(page.getByRole('heading', { level: 1 })).toContainText('404');
+	});
+
+	test('shows 404 without OID params', async ({ page }) => {
+		await page.addInitScript(() => {
+			localStorage.setItem('cachedUsers', JSON.stringify([{ tenant: { id: 'acme' } }]));
+		});
+
+		await page.goto('/some/callback?foo=bar');
+		await expect(page.getByRole('heading', { level: 1 })).toContainText('404');
+	});
+
+	test('redirects to the tenant callback with one cached user', async ({ page }) => {
+		await page.addInitScript(() => {
+			localStorage.setItem('cachedUsers', JSON.stringify([{ tenant: { id: 'acme' } }]));
+		});
+
+		const callbackUrl = '/id/acme/cb/?code=abc';
+		await page.route(callbackUrl, (route) =>
+			route.fulfill({ contentType: 'text/plain', body: 'Tenant callback' }),
+		);
+
+		await page.goto('/some/callback?code=abc', { waitUntil: 'commit' });
+		await expect(page).toHaveURL(callbackUrl);
+	});
+
+	test('shows tenant selection with callback links for multiple cached users', async ({ page }) => {
+		await page.addInitScript(() => {
+			localStorage.setItem(
+				'cachedUsers',
+				JSON.stringify([
+					{ tenant: { id: 'acme', displayName: 'Acme Corp' } },
+					{ tenant: { id: 'globex', displayName: 'Globex Inc' } },
+				]),
+			);
+		});
+
+		await page.goto('/some/callback?code=abc');
+		await expect(page.getByText('Select your wallet to continue')).toBeVisible();
+		const acmeLink = page.getByRole('link').filter({ hasText: 'Acme Corp' });
+		await expect(acmeLink).toHaveAttribute('href', '/id/acme/cb/?code=abc');
+	});
+});

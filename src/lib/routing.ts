@@ -21,13 +21,14 @@ type ErrorRoute = {
 
 export type InitialRoute = RedirectRoute | RenderRoute | ErrorRoute;
 
-export function resolveInitialRoute(pathname: string, knownTenants: KnownTenant[]): InitialRoute {
-	const isBasePath = pathname === '/';
-	const hasOneTenant = knownTenants.length === 1;
-	const hasManyTenants = knownTenants.length > 1;
-	const appearsToHaveSession = hasManyTenants && appearsLoggedIn();
+export function resolveInitialRoute(
+	pathname: string,
+	queryParams: URLSearchParams,
+	knownTenants: KnownTenant[],
+): InitialRoute {
+	const query = hasOidFlowParams(queryParams) ? queryParams : undefined;
 
-	if (!isBasePath) {
+	if (pathname !== '/' && !(query && knownTenants.length > 0)) {
 		return {
 			type: 'render',
 			view: 'not-found',
@@ -35,10 +36,12 @@ export function resolveInitialRoute(pathname: string, knownTenants: KnownTenant[
 		};
 	}
 
-	if (hasOneTenant || appearsToHaveSession) {
+	const hasManyTenants = knownTenants.length > 1;
+
+	if (knownTenants.length === 1 || (hasManyTenants && appearsLoggedIn())) {
 		return {
 			type: 'redirect',
-			url: buildTenantRoutePath(knownTenants[0].id),
+			url: buildTenantRoutePath(knownTenants[0].id, query && `cb/?${query.toString()}`),
 		};
 	}
 
@@ -48,6 +51,7 @@ export function resolveInitialRoute(pathname: string, knownTenants: KnownTenant[
 			view: 'select-tenant',
 			props: {
 				tenants: knownTenants,
+				query,
 			},
 		};
 	}
@@ -57,4 +61,21 @@ export function resolveInitialRoute(pathname: string, knownTenants: KnownTenant[
 		view: 'welcome',
 		props: {},
 	};
+}
+
+/**
+ * Parses a callback URL to determine the OpenID flow type and relevant parameters.
+ */
+export function hasOidFlowParams(params: URLSearchParams): boolean {
+	const responseMode = params.get('response_mode');
+
+	return Boolean(
+		params.get('credential_offer') ||
+			params.get('credential_offer_uri') ||
+			params.get('code') ||
+			(params.get('request_id') &&
+				(responseMode === 'dc_api' || responseMode === 'dc_api.jwt' || params.get('request'))) ||
+			(params.get('client_id') && params.get('request_uri')) ||
+			(params.get('state') && params.get('error')),
+	);
 }
