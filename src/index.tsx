@@ -18,7 +18,11 @@ const root = createRoot(el);
 const cachedUsers = getCachedUsers();
 const knownTenants = getKnownTenants(cachedUsers);
 
-const route = resolveInitialRoute(window.location.pathname, knownTenants);
+const route = resolveInitialRoute(
+	window.location.pathname,
+	new URLSearchParams(window.location.search),
+	knownTenants,
+);
 
 switch (route.type) {
 	case 'redirect':
