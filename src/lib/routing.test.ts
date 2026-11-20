@@ -74,14 +74,20 @@ describe('resolveInitialRoute', () => {
 			});
 		});
 
-		it.each(['/', '/some/callback'])('redirects to tenant callback from %s with 1 cached user', (pathname) => {
+		it.each([
+			'/',
+			'/some/callback',
+		])('redirects to tenant callback from %s with 1 cached user', (pathname) => {
 			expect(resolveInitialRoute(pathname, oidParams, [tenant('acme')])).toEqual({
 				type: 'redirect',
 				url: '/id/acme/cb/?code=abc',
 			});
 		});
 
-		it.each(['/', '/some/callback'])('renders select-tenant with query from %s with multiple cached users', (pathname) => {
+		it.each([
+			'/',
+			'/some/callback',
+		])('renders select-tenant with query from %s with multiple cached users', (pathname) => {
 			const tenants = [tenant('acme'), tenant('globex')];
 			expect(resolveInitialRoute(pathname, oidParams, tenants)).toEqual({
 				type: 'render',
