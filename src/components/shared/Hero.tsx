@@ -1,8 +1,9 @@
+import type { ReactElement } from 'react';
 import useScreenType from '../../hooks/useScreenType';
 import Logo from './Logo';
 
 export type HeroProps = {
-	title?: string;
+	title?: string | ReactElement;
 };
 
 export default function Hero({ title }: HeroProps) {

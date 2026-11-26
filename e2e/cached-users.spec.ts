@@ -14,6 +14,13 @@ test.describe('no cached users', () => {
 		await expect(page.getByRole('heading', { level: 1 })).toContainText('404');
 		await expect(page.getByText('does not exist')).toBeVisible();
 	});
+
+	test('"Find your tenant" navigates to the find tenant view', async ({ page }) => {
+		await page.goto('/');
+		await page.getByRole('link', { name: 'Find your tenant' }).click();
+		await page.waitForURL('/find-tenant');
+		await expect(page.getByLabel('Tenant ID')).toBeVisible();
+	});
 });
 
 test.describe('one cached user', () => {
