@@ -28,6 +28,14 @@ export function resolveInitialRoute(
 ): InitialRoute {
 	const query = hasOidFlowParams(queryParams) ? queryParams : undefined;
 
+	if (pathname === '/find-tenant' || pathname === '/find-tenant/') {
+		return {
+			type: 'render',
+			view: 'find-tenant',
+			props: {},
+		};
+	}
+
 	if (pathname !== '/' && !(query && knownTenants.length > 0)) {
 		return {
 			type: 'render',

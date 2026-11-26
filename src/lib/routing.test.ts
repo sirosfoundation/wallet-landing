@@ -43,6 +43,14 @@ describe('resolveInitialRoute', () => {
 		});
 	});
 
+	it('renders find-tenant view for /find-tenant', () => {
+		expect(resolveInitialRoute('/find-tenant', noParams, [tenant('acme')])).toEqual({
+			type: 'render',
+			view: 'find-tenant',
+			props: {},
+		});
+	});
+
 	it('renders not-found for non-root paths without OID params', () => {
 		expect(resolveInitialRoute('/some-path', noParams, [])).toEqual({
 			type: 'render',

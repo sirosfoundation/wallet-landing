@@ -30,15 +30,14 @@ function NativeWelcomeView() {
 				</p>
 			</div>
 			<div className="mt-6 space-y-4">
-				<Link href="/id/default?mode=signup" variant="primary" className="mt-4">
-					Get started
+				<Link href="/id/default/signup" variant="primary" className="mt-4">
+					Try it out
 				</Link>
 				<p className="text-primary dark:text-white">
-					Already have an account?{' '}
-					<Link href="/id/default/login" variant="link" className="text-primary dark:text-white">
-						Log in
+					Using another wallet tenant?{' '}
+					<Link href="/find-tenant" variant="link" className="text-primary dark:text-white">
+						Find your tenant
 					</Link>
-					.
 				</p>
 			</div>
 		</div>
@@ -72,11 +71,11 @@ const cardsList: CardsList = [
 		),
 		actions: (
 			<>
-				<Link href="/id/default">Continue</Link>
+				<Link href="/id/default/signup">Try it out</Link>
 				<span className="text-primary dark:text-white">
-					Already have an account?{' '}
-					<Link href="/id/default/login" variant="link" className="text-inherit">
-						Log in
+					Using another wallet tenant?{' '}
+					<Link href="/find-tenant" variant="link" className="text-inherit">
+						Find your tenant
 					</Link>
 				</span>
 			</>
