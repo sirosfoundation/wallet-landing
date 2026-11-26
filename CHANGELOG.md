@@ -1,5 +1,17 @@
 # @sirosfoundation/wallet-landing
 
+## 0.4.0
+
+### Minor Changes
+
+- [#32](https://github.com/sirosfoundation/wallet-landing/pull/32) [`7560e6b`](https://github.com/sirosfoundation/wallet-landing/commit/7560e6ba239707bac971b62234d4bc8443697b52) Thanks [@smncd](https://github.com/smncd)! - Add page to find tenant by searching
+
+- [#31](https://github.com/sirosfoundation/wallet-landing/pull/31) [`64ba67e`](https://github.com/sirosfoundation/wallet-landing/commit/64ba67e9be5b4406264d4a1f545a16bea7c7fb1b) Thanks [@smncd](https://github.com/smncd)! - pass along OpenID flow url query params when redirecting to tenant
+
+### Patch Changes
+
+- [#29](https://github.com/sirosfoundation/wallet-landing/pull/29) [`8646e7b`](https://github.com/sirosfoundation/wallet-landing/commit/8646e7b0595dde792435e8ebff3e5205bae5a0b3) Thanks [@s-jairl](https://github.com/s-jairl)! - Add asset links for Android SDK sample app
+
 ## 0.3.0
 
 ### Minor Changes
