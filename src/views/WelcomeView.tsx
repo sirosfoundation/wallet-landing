@@ -8,7 +8,7 @@ import useScreenType from '../hooks/useScreenType';
 
 export default function WelcomeView() {
 	const isNative =
-		document.body.classList.contains('is-wrapper-app') &&
+		document.documentElement.classList.contains('is-wrapper-app') &&
 		'nativeWrapper' in window &&
 		window.nativeWrapper !== null;
 	return isNative ? <NativeWelcomeView /> : <BrowserWelcomeView />;
