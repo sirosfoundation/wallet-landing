@@ -6,9 +6,11 @@ import { buildTenantRoutePath, type KnownTenant } from '../lib/tenant';
 
 export type SelectTenantViewProps = {
 	tenants: KnownTenant[];
+	query?: URLSearchParams;
 };
 
-export default function SelectTenantView({ tenants }: SelectTenantViewProps) {
+export default function SelectTenantView({ tenants, query }: SelectTenantViewProps) {
+	const subPath = query ? `cb/?${query.toString()}` : undefined;
 	return (
 		<div className="grow flex flex-col items-center justify-center px-6 py-8">
 			<Hero />
@@ -23,7 +25,7 @@ export default function SelectTenantView({ tenants }: SelectTenantViewProps) {
 								key={tenant.id}
 								square
 								className="w-full mb-2 flex justify-between gap-3"
-								href={buildTenantRoutePath(tenant.id)}
+								href={buildTenantRoutePath(tenant.id, subPath)}
 							>
 								<TenantMeta knownTenants={tenants} tenantId={tenant.id} />
 								<ArrowRightIcon size={20} className="m-0.5 shrink-0" />
@@ -32,7 +34,7 @@ export default function SelectTenantView({ tenants }: SelectTenantViewProps) {
 					))}
 					{!tenants.find((t) => t.id === 'default') && (
 						<li key="default" className="mt-5 text-sm">
-							<Link variant="link" href={buildTenantRoutePath('default')}>
+							<Link variant="link" href={buildTenantRoutePath('default', subPath)}>
 								Log in to another wallet
 							</Link>
 						</li>
