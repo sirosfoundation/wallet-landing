@@ -1,5 +1,13 @@
 # @sirosfoundation/wallet-landing
 
+## 0.4.1
+
+### Patch Changes
+
+- [#34](https://github.com/sirosfoundation/wallet-landing/pull/34) [`b837c39`](https://github.com/sirosfoundation/wallet-landing/commit/b837c39d214cd18e500ab5b776e7fa1bfc5af1f4) Thanks [@smncd](https://github.com/smncd)! - align footer link with wallet-frontend
+
+- [#33](https://github.com/sirosfoundation/wallet-landing/pull/33) [`9aa8735`](https://github.com/sirosfoundation/wallet-landing/commit/9aa87355c18108171b372c9aa3b9b57530e447f5) Thanks [@smncd](https://github.com/smncd)! - check the correct element for `is-wrapper-app` class
+
 ## 0.4.0
 
 ### Minor Changes
