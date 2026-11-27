@@ -11,12 +11,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 						<p className="text-sm text-lm-gray-800 dark:text-dm-gray-200 text-center">
 							Powered by{' '}
 							<a
-								href="https://developers.siros.org"
+								href="https://github.com/sirosfoundation"
 								rel="noreferrer"
 								target="_blank"
 								className="underline font-semibold text-lm-gray-800 dark:text-dm-gray-300"
 							>
-								SIROS ID
+								SIROS Foundation
 							</a>
 						</p>
 					</footer>
